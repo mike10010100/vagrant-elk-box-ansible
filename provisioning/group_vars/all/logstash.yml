@@ -5,12 +5,12 @@ logstash_defaults: |
         LS_HEAP_SIZE="256m"
 
 logstash_inputs: |
- file {
-    path => ["/vagrant/include/example-logs/testlog"]
-    start_position => "beginning"
+ kafka{
+    zk_connect => "10.0.2.2:2181"
+    topic_id => "test"
     codec => "json"
     type => "json"
-  }
+    }
 logstash_filters: |
 
 logstash_outputs: |
